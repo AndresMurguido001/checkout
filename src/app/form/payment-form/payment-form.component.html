@@ -1,0 +1,33 @@
+<form>
+  <h3>Payment Information</h3>
+ 
+        <mat-form-field appearance="outline" class="payment-form__input--block">
+          <input type="text" matInput required placeholder="Name On Card">
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="payment-form__input--block">
+          <input type="text" matInput required placeholder="Card Number">
+        </mat-form-field>
+        <div class="flex-container">
+          <mat-form-field appearance="outline" class="applicant-form__input--block">
+                  <mat-label>Expiration Month</mat-label>
+                  <mat-select>
+                    <mat-option *ngFor="let month of months" [value]="month">
+                      {{month}}
+                    </mat-option>
+                  </mat-select>
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="applicant-form__input--block">
+              <mat-label>Expiration Year</mat-label>
+              <mat-select>
+                <mat-option *ngFor="let year of years" [value]="year">
+                  {{year}}
+                </mat-option>
+              </mat-select>
+      </mat-form-field>
+          <mat-form-field appearance="outline" class="payment-form__input--inline">
+            <input type="text" matInput placeholder="CCV">
+          </mat-form-field>
+        </div>
+        <button mat-raised-button class="payment-form__submit" color="primary" block type="submit">Submit Payment</button>
+
+</form>

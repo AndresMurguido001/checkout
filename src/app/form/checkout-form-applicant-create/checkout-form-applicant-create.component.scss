@@ -1,0 +1,48 @@
+.add-applicant-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.applicant-form {
+    &__container {
+        background-color: rgb(243, 243, 243);
+        border-radius: 10px;
+    }
+    
+    &__input {
+
+        &--inline {
+            display: inline;
+        }
+
+        &--block {
+            display: block;
+        }
+    }
+
+    &__label {
+        font-size: 20px;
+        font-weight: 400;
+        letter-spacing: 1.5;
+        padding: 1rem 0;
+    }
+
+    &__addons {
+        padding: 1rem 0;
+
+        &-name {
+            font-size: 18px;
+            font-weight: 400;
+        }
+    }
+
+    &__submit {
+        display: block;
+        // width: 50%;
+        margin: 1rem auto;
+    }
+}
+
+/deep/ .mat-checkbox-layout {
+    white-space: normal !important;
+}

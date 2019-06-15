@@ -1,0 +1,24 @@
+<div class="login-form__container" id="loginForm-0">
+  <form #container [formGroup]="loginForm.controls.login" (ngSubmit)="onSubmit()" class="login-form__form">
+    <div class="login-form__header">
+      <h2>Login</h2>
+    </div>
+    <mat-form-field appearance="outline" class="login-form__input">
+      <input type="text" matInput required formControlName="email" placeholder="Email">
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="login-form__input">
+      <input type="password" matInput required formControlName="password" placeholder="Password">
+    </mat-form-field>
+    <!-- <mat-toolbar> -->
+      <button 
+        mat-raised-button 
+        class="login-form__submit--block" 
+        color="primary">
+        Login &rarr;
+      </button>
+    <!-- </mat-toolbar> -->
+  </form>
+  <svg appResize viewBox="0 0 100 100" preserveAspectRatio="none">
+    <path d="M0 0 L100 0 L100 100 L0 100 Z" />
+  </svg>
+</div>

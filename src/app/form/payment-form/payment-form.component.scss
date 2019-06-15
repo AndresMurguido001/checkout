@@ -1,0 +1,19 @@
+
+.payment-form {
+    &__input {
+        &--block {
+            display: block;
+        }
+    }
+
+    &__submit {
+        display: block;
+        width: 50%;
+        margin: auto;
+    }
+
+}
+div.flex-container {
+    display: flex;
+    justify-content: space-between;
+}

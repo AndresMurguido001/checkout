@@ -1,0 +1,87 @@
+    <div [formGroup]="applicantForm.controls.applicant" class="form__container form__container--2">
+        <div class="form-header">
+          <h2 class="form-header__content form-header__content--primary">Applicant</h2>
+          <span class="form-header__content form-header__content--secondary">Add applicants to purchase a service</span>
+          <img src="../../../assets/Banner.svg" alt="Form Banner" class="form-header__banner">
+        </div>
+        <div class="form-body">
+          <div class="form-group">
+            <input class="form-group__input form-group__input--block" type="text" required formControlName="firstname" placeholder="Firstname">
+          </div>
+          <div class="form-group">
+            <input class="form-group__input form-group__input--block" type="text" required formControlName="lastname" placeholder="Lastname">
+          </div>
+          <div class="form-group form-group--relative">
+              <select class="form-group__input form-group__input--block" name="addon" id="addons">
+                <option disabled value="Passport Type">Passport Type</option>
+                <option *ngFor="let type of passportTypes" value="type">{{ type }}</option>
+              </select>
+            </div>
+          <label for="departure">Departure Date</label>
+          <div class="form-group form-group--flex">
+            <input id="departure" class="form-group__input form-group__input--inline" type="date" required formControlName="departureDate" placeholder="Departure Date">
+            <input class="form-group__input form-group__input--inline" type="text" required formControlName="destination" placeholder="Destination">
+          </div>
+
+            <div class="form-group form-group--flex-column">
+              <h3 class="form-heading__secondary">Expediting Service</h3>
+              <div class="form-group__radio-group form-group--relative" *ngFor="let product of products | async">
+                <input class="form-group__radio" name="product" [id]="product.name" type="radio">
+                <label class="form-group__radio-label" [for]="product.name" >
+                  <div class="form-group--flex">
+                    <span class="product__radio-container">
+                      <span class="product__radio-center"></span>
+                    </span>
+                    <span class="product product--third">
+                        {{ product.name }}
+                      </span>
+                      <span class="product product--third">
+                        {{ product.description }}
+                      </span>
+                      <span class="product product--third product--right">
+                        {{ product.price | currency }}
+                      </span>
+                  </div>
+                </label>
+              </div>
+            </div>
+            <div class="form-group form-group--flex-column">
+              <h3 class="form-heading--secondary">Addons</h3>
+              <div *ngFor="let addon of addons | async">
+                  <input class="form-group__checkbox" [name]="addon.name" type="checkbox" [id]="addon.name" [value]="addon.price">
+                  <label [for]="addon.name">
+                    <div class="form-group form-group--flex">
+                      <span class="checkbox__container">
+                        <span class="checkbox__center"></span>
+                      </span>
+                      <span class="product product--half">
+                        {{ addon.name }}
+                      </span>
+                      <span class="product product--half product--right">
+                        {{ addon.price | currency }}
+                      </span>
+                    </div>
+                        <div class="addon__description">
+                          {{ addon.description }}
+                        </div>
+                  </label>
+              </div>
+            </div>
+
+          
+          <div class="form-group">
+            <button 
+            class="form-button 
+                   form-button__submit" 
+                   (click)="onApplicantCreate()"
+                   >
+              Create Applicant &rarr;
+            </button>
+          </div>
+         
+        </div>
+        <svg class="form__border" appResize viewBox="-0.5 -0.5 98 98" preserveAspectRatio="none">
+            <!-- <path class="form__border-path" d="M0 5 C0,0 0, 0 5, 0 L90 0 C97, 0 97, 0 97, 5 L97 90 C97, 97 97.5, 97 93, 97 L10 97 C0, 97 0, 97 0, 94 Z" /> -->
+            <!-- "M0 5 C0,0 0, 0 5, 0 L90 0 C97, 0 97, 0 97, 5 L97 90 C97, 97 97, 97 90, 97 L10 97 C0, 97 0, 97 0, 90 Z -->
+        </svg>
+    </div>

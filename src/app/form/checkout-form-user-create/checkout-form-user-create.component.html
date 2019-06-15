@@ -1,0 +1,45 @@
+
+    <div [@formCompleted] *ngIf="!completed" [formGroup]="userForm.controls.signup" class="form__container form__container--1">
+        <div class="form-header">
+          <h2 class="form-header__content form-header__content--primary">Sign up</h2>
+          <span class="form-header__content form-header__content--secondary">Create your account to get started</span>
+          <img src="../../../assets/Banner.svg" alt="Form Banner" class="form-header__banner">
+        </div>
+        <div class="form-body">
+          <div class="form-group">
+            <input class="form-group__input form-group__input--block" type="text" required formControlName="firstname" placeholder="Firstname">
+          </div>
+          <div class="form-group">
+            <input class="form-group__input form-group__input--block" type="text" required formControlName="lastname" placeholder="Lastname">
+          </div>
+          <div class="form-group">
+            <input class="form-group__input form-group__input--block" type="email" required formControlName="email" placeholder="Email">
+          </div>
+          <div class="form-group">
+            <input class="form-group__input form-group__input--block" type="password" required formControlName="password" placeholder="Password">
+          </div>
+          <div class="form-group">
+            <button 
+            class="form-button 
+                   form-button__submit" 
+                   (click)="onSubmit()"
+                   >
+              Create Account &rarr;
+            </button>
+          </div>
+          <span class="form-seperator">
+            Already Registered?
+          </span>
+          <div class="form-group">
+            <button 
+              class="form-button form-button__secondary" 
+              (click)="openLoginDialog()" 
+              color="primary">
+              Login
+            </button>
+          </div>
+        </div>
+        <svg class="form__border" appResize viewBox="-0.5 -0.5 98 98" preserveAspectRatio="none">
+            <path class="form__border-path" d="M0 5 C0,0 0, 0 5, 0 L90 0 C97, 0 97, 0 97, 5 L97 90 C97, 97 97, 97 90, 97 L10 97 C0, 97 0, 97 0, 90 Z" />
+        </svg>
+    </div>

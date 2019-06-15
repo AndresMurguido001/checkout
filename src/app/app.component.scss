@@ -1,0 +1,58 @@
+:host {
+    position: relative;
+}
+.nav-wrapper {
+    font-family: "Rockwell";
+    background-color: #77B6FF;
+    color: #fff;
+    width: 100%;
+    display: block;
+    height: 5rem;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+
+    header {
+        display: flex;
+        width: 60%;
+        margin: auto;
+        height: 100%;
+        align-items: center;
+
+        nav {
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            align-items: center;
+
+            .nav-brand {
+                font-size: 1.5rem;
+                display: flex;
+                align-items: center; 
+                position: relative;
+
+                svg {
+                    margin-left: 0.5rem;
+                }
+            }
+
+            .nav-list {
+                display: flex;
+                list-style: none;
+
+                &__item {
+                    margin: 0 1rem;
+                }
+            }
+        }
+    }
+}
+
+@keyframes grow {
+    0% {
+        transform: scaleX(0) rotate(360deg);
+        opacity: 0;
+    }
+    100% {
+        transform: scaleX(1) rotate(0);
+        opacity: 1;
+    }
+}

@@ -1,0 +1,77 @@
+/deep/ div.login-form__dialog {
+    width: 30rem;
+    & > mat-dialog-container {
+        position: relative;
+        min-width: 100%;
+        display: block;
+
+        .login-form {
+            position: relative;
+            
+            &__form {
+                border-radius: 10px;
+                position: relative;
+                z-index: 1;
+            }
+
+            &__input {
+                display: block;
+                width: 100%;
+            }
+        
+            &__submit {
+                
+                &--block {
+                    display: block;
+                    width: 100%;
+                }
+            }
+
+            &__header {
+                position: relative;   
+                z-index: 1;  
+                padding-bottom: 7px;   
+
+                    & > h2 {
+                        letter-spacing: 0.5rem;
+                        text-indent: 1rem;
+                        margin: 0;
+                        font-weight: 100;
+                    }
+    
+                    &::before {
+                        content: "";
+                        position: absolute;
+                        bottom: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 5px;
+                        background: linear-gradient(to right, #673ab7, transparent, transparent);
+                        z-index: -1;
+                        transform: scaleX(0);
+                        transform-origin: left;
+                        transition: transform 0.5s;
+                    }
+            }
+
+            &__container {
+                &:hover {
+                    & > form > .login-form__header::before {
+                        transform: scaleX(1);
+                        transition: transform 0.5s;
+                    }
+                }
+            }
+        }
+        
+     }
+     
+ }
+
+
+
+ @keyframes SlideBy {
+     100% {
+         
+     }
+ }

@@ -1,0 +1,13 @@
+<div class="forms__container">
+  <form [formGroup]="formContainer">
+    <app-checkout-form-user-create (loginUser)="loginUser($event, stepper)" (createUser)="createUser($event, stepper)">
+    </app-checkout-form-user-create>
+  </form>
+  <form [formGroup]="formContainer"> 
+  <app-checkout-form-applicant-create (productCreated)="createProduct($event)" (applicantCreated)="createApplicant($event)"></app-checkout-form-applicant-create> 
+  </form> 
+  <!-- <app-payment-form></app-payment-form> -->
+  <!-- <app-checkout-form-summary>
+  </app-checkout-form-summary> -->
+  <app-checkout-form-steps [steps]="formSteps"></app-checkout-form-steps>
+</div>

@@ -1,0 +1,17 @@
+<mat-card [@openClose]="isOpen ? 'open' : 'closed'" class="order-summary__wrapper">
+  <mat-card-title class="order-summary__title">
+    Order Summary
+    <i (click)="toggleSummary()" [@upDown]="isOpen ? 'up' : 'down'" mat-card-avatar class="material-icons order-summary__title--icon">
+        keyboard_arrow_down
+        </i>
+  </mat-card-title>
+  <mat-card-subtitle *ngIf="user | async as u;">
+    {{ u.firstname | titlecase }} {{ u.lastname | titlecase }}
+  </mat-card-subtitle>
+  <mat-card-content>
+      <span *ngFor="let applicant of applicants | async;" class="order-summary__applicant-name">
+        {{ applicant.firstname | titlecase }}
+        {{ applicant.lastname | titlecase }}
+      </span>
+  </mat-card-content>
+</mat-card>

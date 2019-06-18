@@ -6,12 +6,18 @@ import { MatStepper } from '@angular/material';
 import { CheckoutFormService } from 'src/app/services/checkout-form.service';
 import { User } from '../models/User';
 import { Observable } from 'rxjs';
+import { nextLoginStep, substepAnimation } from '../../shared/animations'
+import { FormStep } from 'src/app/shared/types';
  
 
 @Component({
   selector: 'app-checkout-form-applicant-create',
   templateUrl: './checkout-form-applicant-create.component.html',
-  styleUrls: ['../styles/_form.scss','./checkout-form-applicant-create.component.scss']
+  styleUrls: ['../styles/_form.scss','./checkout-form-applicant-create.component.scss'],
+  animations: [
+    nextLoginStep,
+    substepAnimation
+  ]
 })
 export class CheckoutFormApplicantCreateComponent implements OnInit, OnDestroy {
 
@@ -24,6 +30,13 @@ export class CheckoutFormApplicantCreateComponent implements OnInit, OnDestroy {
   public products: Observable<Product[]>;
   user: User;
   applicant: Applicant;
+
+  // Animation Properties
+  @Input('currentStep') currentStep: FormStep;
+  // Substep Properties
+  public substeps: FormStep[];
+  public currentAction: string;
+  public activeSubstepIndex: number;
 
   passportTypes = [
     "Child Passport",
@@ -46,6 +59,11 @@ export class CheckoutFormApplicantCreateComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+
+    this.substeps = this.currentStep.steps;
+    this.activeSubstepIndex = 0;
+    this.currentAction = "Next Section"
+
     this.applicantForm = this.formContainer.form;
       this.applicantForm.addControl('applicant', 
         this.formBuilder.group({
@@ -98,6 +116,18 @@ export class CheckoutFormApplicantCreateComponent implements OnInit, OnDestroy {
       this.onProductCreate(stepper);
     } else {
       stepper.next();
+    }
+  }
+
+  public currentStepAction() {
+    console.log(this.substeps);
+    console.log(this.activeSubstepIndex)
+    this.substeps[this.activeSubstepIndex].active = false;
+    if (this.activeSubstepIndex < this.substeps.length - 1) {
+      this.substeps[this.activeSubstepIndex + 1].active = true
+      this.activeSubstepIndex += 1;
+    } else {
+      console.log("DONE");
     }
   }
 }

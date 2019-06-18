@@ -1,8 +1,8 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormGroupDirective } from '@angular/forms';
 import { MatDialog } from '@angular/material';
 import { LoginFormComponent } from '../login-form/login-form.component';
-import { LoginFormData } from 'src/app/shared/types';
+import { LoginFormData, FormStep } from 'src/app/shared/types';
 import { nextLoginStep } from 'src/app/shared/animations';
 
 @Component({
@@ -15,9 +15,8 @@ import { nextLoginStep } from 'src/app/shared/animations';
 })
 export class CheckoutFormUserCreateComponent implements OnInit {
 
-  public completed = false;
+  @Input("currentStep") currentStep: FormStep
   userForm: FormGroup;
-  // loginForm: FormGroup;
   @Output() createUser = new EventEmitter<any>();
   @Output() loginUser = new EventEmitter<any>();
 
@@ -42,7 +41,6 @@ export class CheckoutFormUserCreateComponent implements OnInit {
   }
 
   onSubmit(){
-    this.completed = true;
     this.createUser.emit(this.userForm.controls.signup.value);
   }
 

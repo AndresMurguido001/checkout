@@ -24,10 +24,10 @@ div.form__container {
     width: 100%;
     display: flex;
     flex-direction: column;
-    background-color: $form-bg;
+    // background-color: $form-bg;
     border-radius: 20px;
     overflow: hidden;
-    box-shadow: $shadow-light;
+    // box-shadow: $shadow-light;
     position: absolute;
 
     &--1 {
@@ -134,14 +134,14 @@ div.form__container {
 
             .checkbox__container {
                 border: 2px solid #00A8FC;
-                width: 15px;
-                height: 15px;
+                width: 16px;
+                height: 16px;
                 position: relative;
             }
 
             .checkbox__center {
-                height: 10px;
-                width: 10px;
+                height: 12px;
+                width: 12px;
                 display: block;
                 background-color: #77B6FF;
                 position: absolute;
@@ -302,7 +302,7 @@ ul.steps-container {
     list-style: none;
     position: absolute;
     top: 0;
-    left: -10rem;
+    right: -10rem;
     height: 70vh;
     flex-direction: column;
     justify-content: space-around;
@@ -344,18 +344,18 @@ ul.steps-container {
 
  svg.form__border {
     position: absolute;
-    top: 0;
+    top: -1.5px;
     left: 0;
     width: 100%;
     height: 100%;
     overflow: visible;
     z-index: -1;
 
-    path.form__border-path {
+    rect.form__border-path {
         fill: none;
         stroke: #00A8FC;
-        stroke-width: 1px;
-        height: 100%;
+        stroke-width: 3;
+        // height: 101%;
         stroke-linejoin: round;
         animation: DrawBorder 1.5s forwards;
         opacity: 0;

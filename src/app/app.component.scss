@@ -1,6 +1,19 @@
 :host {
     position: relative;
 }
+
+.background {
+    background: linear-gradient(rgba(255, 255, 255, 0.45), rgba(191, 234, 255, 0.45)), url("../assets/fastport_clone_bg.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: fixed;
+    top: -1rem;
+    left: -3rem;
+    width: 104vw;
+    height: 105vh;
+}
+
 .nav-wrapper {
     font-family: "Rockwell";
     background-color: #77B6FF;
@@ -9,6 +22,8 @@
     display: block;
     height: 5rem;
     box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    position: relative;
+    z-index: 10;
 
     header {
         display: flex;

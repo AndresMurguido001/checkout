@@ -1,5 +1,5 @@
 
-    <div [@formCompleted] *ngIf="!completed" [formGroup]="userForm.controls.signup" class="form__container form__container--1">
+    <div [@formCompleted] *ngIf="currentStep.active" [formGroup]="userForm.controls.signup" class="form__container form__container--1">
         <div class="form-header">
           <h2 class="form-header__content form-header__content--primary">Sign up</h2>
           <span class="form-header__content form-header__content--secondary">Create your account to get started</span>
@@ -39,7 +39,8 @@
             </button>
           </div>
         </div>
-        <svg class="form__border" appResize viewBox="-0.5 -0.5 98 98" preserveAspectRatio="none">
-            <path class="form__border-path" d="M0 5 C0,0 0, 0 5, 0 L90 0 C97, 0 97, 0 97, 5 L97 90 C97, 97 97, 97 90, 97 L10 97 C0, 97 0, 97 0, 90 Z" />
-        </svg>
+        <svg class="form__border" appResize viewBox="0 0 200 300" preserveAspectRatio="none">
+            <rect class="form__background" height="298.5" rx="5" stroke="none" width="197"  stroke="none" fill="#90DAFF" />
+            <rect class="form__border-path" x="1.5" y="1.5" width="197" height="297.5" rx="5"  />
+          </svg>
     </div>

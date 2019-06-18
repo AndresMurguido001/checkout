@@ -10,6 +10,7 @@ import {
     stagger,
     keyframes,
   } from '@angular/animations';
+import { NONE_TYPE } from '@angular/compiler/src/output/output_ast';
 
   export const orderSummaryAnimation = trigger("openClose", [
     state('open', style({
@@ -41,13 +42,47 @@ import {
 
  
 export const nextLoginStep = trigger('formCompleted', [
+  transition(":enter", [
+    animate("0.5s ease-in-out", keyframes([
+      style({ opacity: 0, transform: "translate(0, -30rem)" }),
+      style({ opacity: 1, transform: "translate(0, 0)" })
+    ]))
+  ]),
   transition(":leave", [
-
-    animate("0.8s ease-out", keyframes([
-      style({ opacity: 1, transform: "rotate(0deg) translateY(0)" }),
-      style({ transform: "rotate(30deg)", transformOrigin: "top left"}),
-      style({ transform: "rotate(0) translateY(30rem)", transformOrigin: "center", opacity: 0 })
+    animate("0.85s ease-out", keyframes([
+      style({ opacity: 1 }),
+      style({ opacity: 0 }),
+      style({ display: "none" })
     ]))
 
   ])
 ])
+
+export const substepAnimation = trigger('substepAnimation', [
+  transition(":enter", [
+    animate("0.5s ease-in-out", keyframes([
+      style({ opacity: 0, transform: "translateX(-50rem)"}),
+      style({ opacity: 1, transform: "translateX(0)"})
+    ]))
+  ]),
+  transition(":leave", [
+    animate("0.5s ease-in-out", keyframes([
+      style({ opacity: 1, transform: "translateX(0)", position: "absolute" }),
+      style({ opacity: 0, transform: "translateX(100rem)", position: "absolute" }),
+    ]))
+  ])
+])
+
+// export const formSectionSubstep = trigger('nextSubStep', [
+//   transition("active", [
+//     animate("0.5s ease-in-out", keyframes([
+//       style({ opacity: 0, transform: "translate(0, -30rem)" }),
+//       style({ opacity: 1, transform: "translate(0, 0)" })
+//     ])),
+//     transition("nextSubStep", [
+//       animate("0.5s ease-in-out", keyframes([
+//         // style({  })
+//       ]))
+//     ])
+//   ])
+// ])

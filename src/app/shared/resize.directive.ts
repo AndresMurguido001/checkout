@@ -9,10 +9,13 @@ export class ResizeDirective implements OnInit {
   }
 
   checkWindow() {
-    let path = this.el.nativeElement.querySelector('path');
-    let pathSize = path.getTotalLength();
-    path.style.strokeDashoffset = pathSize;
-    path.style.strokeDasharray = pathSize;
+    let path = this.el.nativeElement.querySelector('rect');
+    if (path) {
+      let pathSize = Math.round(path.getTotalLength() + 5);
+      path.style.strokeDashoffset = pathSize;
+      path.style.strokeDasharray = pathSize;
+
+    }
   }
 
   constructor(private el: ElementRef) {
